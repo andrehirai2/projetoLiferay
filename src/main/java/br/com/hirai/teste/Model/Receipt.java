@@ -19,8 +19,9 @@ public class Receipt {
 		this.setTotalTax(this.list);
 	}
 
+
 	public BigDecimal getTotalTax() {
-		return totalTax;
+		return this.totalTax.setScale(2, BigDecimal.ROUND_HALF_UP);
 	}
 
 	public void setTotalTax(List<ProductItem> list) {
@@ -28,7 +29,7 @@ public class Receipt {
 	}
 
 	public BigDecimal getTotalPrice() {
-		return totalPrice;
+		return this.totalPrice.setScale(2, BigDecimal.ROUND_HALF_UP);
 	}
 
 	private void setTotalPrice(List<ProductItem> list) {
@@ -39,6 +40,18 @@ public class Receipt {
 		return list;
 	}
 	
-	
+	@Override
+	public String toString() {
+		String receipt = "Receipt:\n";
+		
+		for (ProductItem productItem : this.list) {
+			receipt += productItem.getQty() + " " + productItem.getProduct().getName() + ": " + productItem.getPrice() + "\n"; 
+		}
+		
+		receipt += "Sales Taxes: " + this.getTotalTax() + "\nTotal: " + this.getTotalPrice();
+		
+		return receipt;
+		
+	}
 	
 }
