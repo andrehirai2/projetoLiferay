@@ -1,4 +1,4 @@
-package br.com.hirai.teste.Model;
+package br.com.hirai.projetoLiferay.Model;
 
 import java.math.BigDecimal;
 

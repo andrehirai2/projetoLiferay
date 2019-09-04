@@ -1,4 +1,4 @@
-package br.com.hirai.projetoTeste;
+package br.com.hirai.testes;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

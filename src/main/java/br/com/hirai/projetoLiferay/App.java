@@ -1,13 +1,13 @@
-package br.com.hirai.teste;
+package br.com.hirai.projetoLiferay;
 
 
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
-import br.com.hirai.teste.Model.Product;
-import br.com.hirai.teste.Model.ProductItem;
-import br.com.hirai.teste.Model.Receipt;
+import br.com.hirai.projetoLiferay.Model.Product;
+import br.com.hirai.projetoLiferay.Model.ProductItem;
+import br.com.hirai.projetoLiferay.Model.Receipt;
 
 /**
  * @andrehirai
