@@ -11,16 +11,12 @@ public class Tax {
 	public static BigDecimal calculateTax(Product product, BigDecimal price) {
 		if(product.isImported() && !product.getProductExempt() ) {
 			price = price.multiply(fullRate);
-			return new BigDecimal(price.multiply(new BigDecimal(20))
-                    .add(new BigDecimal("1"))
-                    .toBigInteger()).divide(new BigDecimal(20));
+			return roundingFunction(price,new BigDecimal("1"));
 			}
 		
 		if(product.isImported()) {
 			price = price.multiply(importedRate);
-			return new BigDecimal(price.multiply(new BigDecimal(20))
-                    .add(new BigDecimal("0.9"))
-                    .toBigInteger()).divide(new BigDecimal(20));
+			return roundingFunction(price,new BigDecimal("0.9"));
 		}
 		
 		if(!product.getProductExempt()) {
@@ -47,5 +43,13 @@ public class Tax {
 		}
 		return total;	
 	}
+	
+	public static BigDecimal roundingFunction(BigDecimal price, BigDecimal round) {
+		return new BigDecimal(price.multiply(new BigDecimal(20))
+                .add(round)
+                .toBigInteger()).divide(new BigDecimal(20));	
+	}
+	
+	
 	
 }

@@ -8,9 +8,6 @@ public class ProductItem {
 	private BigDecimal price;
 	private BigDecimal tax;
 	
-	
-	
-	
 	public ProductItem(Product product, int qty, BigDecimal price) {
 		super();
 		this.product = product;

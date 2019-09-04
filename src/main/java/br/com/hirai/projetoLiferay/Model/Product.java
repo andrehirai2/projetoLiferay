@@ -17,9 +17,11 @@ public class Product {
 	public String getName() {
 		return name;
 	}
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
 	public boolean isImported() {
 		return isImported;
 	}
@@ -27,6 +29,7 @@ public class Product {
 	public boolean getProductExempt() {
 		return productExempt;
 	}
+	
 	public void setProductType(boolean productExempt) {
 		this.productExempt = productExempt;
 	}
@@ -40,6 +43,7 @@ public class Product {
 		   boolean bResult=false;
 
 		   List<String> list = Arrays.asList(Product.productsTypeExempt);
+		   
 		   for (String word: list ) {
 		       boolean bFound = name.contains(word);
 		       if (bFound) {bResult=bFound; break;}
