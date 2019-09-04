@@ -42,13 +42,13 @@ public class Receipt {
 	
 	@Override
 	public String toString() {
-		String receipt = "Receipt:\n";
+		String receipt = "";
 		
 		for (ProductItem productItem : this.list) {
 			receipt += productItem.getQty() + " " + productItem.getProduct().getName() + ": " + productItem.getPrice() + "\n"; 
 		}
 		
-		receipt += "Sales Taxes: " + this.getTotalTax() + "\nTotal: " + this.getTotalPrice();
+		receipt += "Sales Taxes: " + this.getTotalTax() + "\nTotal: " + this.getTotalPrice() + "\n";
 		
 		return receipt;
 		

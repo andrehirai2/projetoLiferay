@@ -23,9 +23,7 @@ public class Product {
 	public boolean isImported() {
 		return isImported;
 	}
-	public void setImported(boolean isImported) {
-		this.isImported = isImported;
-	}
+	
 	public boolean getProductExempt() {
 		return productExempt;
 	}
@@ -35,9 +33,7 @@ public class Product {
 	
 	private void checkProductImported(String name) {
 		this.isImported = name.contains("imported");
-		if(!this.isImported) {
-			this.productExempt = this.checkProductType(name);
-		}
+		this.productExempt = this.checkProductType(name);
 	}
 	
 	private Boolean checkProductType(String name) {
