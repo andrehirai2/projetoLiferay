@@ -5,21 +5,27 @@ import java.util.List;
 
 public class Tax {
 	private final static BigDecimal importedRate = new BigDecimal(0.05);
-	private final static BigDecimal noExemptedRate = new BigDecimal(0.1);
+	private final static BigDecimal noExemptedRate = new BigDecimal(0.10);
 	private final static BigDecimal fullRate = new BigDecimal(0.15);
 	
 	public static BigDecimal calculateTax(Product product, BigDecimal price) {
 		if(product.isImported() && !product.getProductExempt() ) {
-			price = price.add(new BigDecimal(0.05));
-			return price.multiply(fullRate);
+			price = price.multiply(fullRate);
+			return new BigDecimal(price.multiply(new BigDecimal(20))
+                    .add(new BigDecimal("1"))
+                    .toBigInteger()).divide(new BigDecimal(20));
 			}
 		
 		if(product.isImported()) {
-			return price.multiply(importedRate);
+			price = price.multiply(importedRate);
+			return new BigDecimal(price.multiply(new BigDecimal(20))
+                    .add(new BigDecimal("0.9"))
+                    .toBigInteger()).divide(new BigDecimal(20));
 		}
 		
 		if(!product.getProductExempt()) {
 			return price.multiply(noExemptedRate);
+			
 		}
 		return new BigDecimal(0);
 	}
